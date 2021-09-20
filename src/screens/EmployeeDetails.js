@@ -39,7 +39,7 @@ const EmployeeDetails = ({ ...props }) => {
                         <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 12, lineHeight: 40 }}>Company Details: </Text>
                         {Object.keys(employeeData?.company ?? {}).map((item, index) => {
                             return (
-                                <View>
+                                <View key={index}>
                                     <Text style={styles.commonText1}>{item}: </Text>
                                     <Text style={styles.commonText2}>{employeeData?.company[item] ?? "not specified"}</Text>
                                 </View>
@@ -52,12 +52,12 @@ const EmployeeDetails = ({ ...props }) => {
                         <View>
                             {Object.keys(employeeData?.address ?? {}).map((item, index) => {
                                 return (
-                                    <View>
+                                    <View key={index}>
                                         <Text style={styles.commonText1}>{item}: </Text>
                                         <Text style={styles.commonText2}>{typeof employeeData?.address[item] === "string" ? employeeData?.address[item] ?? "not specified" :
                                             Object.keys(employeeData?.address[item] ?? {}).map((element, index) => {
                                                 return (
-                                                    <View style={{marginHorizontal: 15}}>
+                                                    <View key={index} style={{marginHorizontal: 15}}>
                                                         <Text style={styles.commonText1}>{element}: </Text>
                                                         <Text style={styles.commonText2}>{employeeData?.address[item][element] ?? "Not specified"}</Text>
                                                     </View>
